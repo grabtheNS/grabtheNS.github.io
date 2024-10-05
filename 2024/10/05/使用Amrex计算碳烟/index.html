@@ -19,23 +19,23 @@
   <meta name="author" content="jiaqianzhang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="我的所有网站博客配置都是跟着这个文章写的GitHub Pages + Hexo搭建个人博客网站，史上最全教程_hexo博客-CSDN博客 一些常见的运行命令：hexo g -d 部署到GitHub上（要提前配置gitHub相关的信息） hexo s 这两个用来本地启动 hexo new post 个人博客搭建指南这个指令用来新建post文">
+    <meta name="description" content="Amrex的安装Amrex主要由三个部分构成：PelePhysics PeleLMeX PeleC ,我们这里计算碳烟主要是用到了前两个，PelePhysics主要提供化学计算，而后者提供流体求解器，具体的说明和安装可以参考AMReX-Combustion: Suite of adaptive mesh reacting flow codes for reacting flows 燃烧配置1物理建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="个人博客搭建指南">
-<meta property="og:url" content="http://example.com/2024/10/04/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:title" content="使用Amrex计算碳烟">
+<meta property="og:url" content="http://example.com/2024/10/05/%E4%BD%BF%E7%94%A8Amrex%E8%AE%A1%E7%AE%97%E7%A2%B3%E7%83%9F/index.html">
 <meta property="og:site_name" content="jiaqianzhang">
-<meta property="og:description" content="我的所有网站博客配置都是跟着这个文章写的GitHub Pages + Hexo搭建个人博客网站，史上最全教程_hexo博客-CSDN博客 一些常见的运行命令：hexo g -d 部署到GitHub上（要提前配置gitHub相关的信息） hexo s 这两个用来本地启动 hexo new post 个人博客搭建指南这个指令用来新建post文">
+<meta property="og:description" content="Amrex的安装Amrex主要由三个部分构成：PelePhysics PeleLMeX PeleC ,我们这里计算碳烟主要是用到了前两个，PelePhysics主要提供化学计算，而后者提供流体求解器，具体的说明和安装可以参考AMReX-Combustion: Suite of adaptive mesh reacting flow codes for reacting flows 燃烧配置1物理建">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/test.png">
-<meta property="article:published_time" content="2024-10-04T14:21:08.038Z">
-<meta property="article:modified_time" content="2024-10-04T15:17:40.502Z">
+<meta property="og:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%9B%BE%E7%BA%B8.jpg">
+<meta property="article:published_time" content="2024-10-05T05:33:04.000Z">
+<meta property="article:modified_time" content="2024-10-05T06:56:53.072Z">
 <meta property="article:author" content="jiaqianzhang">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/test.png">
+<meta name="twitter:image" content="http://example.com/images/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%9B%BE%E7%BA%B8.jpg">
   
   
   
-  <title>个人博客搭建指南 - jiaqianzhang</title>
+  <title>使用Amrex计算碳烟 - jiaqianzhang</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="个人博客搭建指南"></span>
+            <span id="subtitle" data-typed-text="使用Amrex计算碳烟"></span>
           
         </div>
 
@@ -225,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-04 22:21" pubdate>
-          2024年10月4日 晚上
+        <time datetime="2024-10-05 13:33" pubdate>
+          2024年10月5日 下午
         </time>
       </span>
     
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          95 字
+          1.8k 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          1 分钟
+          16 分钟
         
       </span>
     
@@ -294,18 +294,66 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">个人博客搭建指南</h1>
+            <h1 id="seo-header">使用Amrex计算碳烟</h1>
             
             
               <div class="markdown-body">
                 
-                <p>我的所有网站博客配置都是跟着这个文章写的<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/yaorongke/article/details/119089190">GitHub Pages + Hexo搭建个人博客网站，史上最全教程_hexo博客-CSDN博客</a></p>
-<p>一些常见的运行命令：<br><code>hexo g -d</code></p>
-<p>部署到GitHub上（要提前配置gitHub相关的信息）</p>
-<p><code>hexo s</code></p>
-<p>这两个用来本地启动</p>
-<p><code>hexo new post 个人博客搭建指南</code><br>这个指令用来新建post文</p>
-<p><img src="/images/test.png" srcset="/img/loading.gif" lazyload alt="图片引用方法三"></p>
+                <h1 id="Amrex的安装"><a href="#Amrex的安装" class="headerlink" title="Amrex的安装"></a>Amrex的安装</h1><p>Amrex主要由三个部分构成：PelePhysics PeleLMeX PeleC ,我们这里计算碳烟主要是用到了前两个，PelePhysics主要提供化学计算，而后者提供流体求解器，具体的说明和安装可以参考<a target="_blank" rel="noopener" href="https://amrex-combustion.github.io/">AMReX-Combustion: Suite of adaptive mesh reacting flow codes for reacting flows</a></p>
+<h1 id="燃烧配置"><a href="#燃烧配置" class="headerlink" title="燃烧配置"></a>燃烧配置</h1><h2 id="1物理建模"><a href="#1物理建模" class="headerlink" title="1物理建模"></a>1物理建模</h2><p>由于Amrex是使用自适应网格技术，它的一个最大的优点就是不用自己画网格，调节粗细。这里采用我们实验室的燃烧器计算图纸进行建模。</p>
+<p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%9B%BE%E7%BA%B8.jpg" srcset="/img/loading.gif" lazyload alt="燃烧器模型"></p>
+<p>选择项目提供的案例里最相近的模型进行修改，这里我们选择PeleLMeX\Exec\Production\DiffBunsen2D</p>
+<p>案例文件，从文件名上也可以看出这是一个二维扩散本生灯相关的案例。</p>
+<h3 id="1）CMakeLists-txt"><a href="#1）CMakeLists-txt" class="headerlink" title="1）CMakeLists.txt"></a>1）CMakeLists.txt</h3><p>先看看CMakeLists.txt(值得说明的是AMREX为大规模并行计算设计的结构非常好，它使用了编译可执行文件+Input文本的方式进行计算，而不依赖其它相关项，这里后面也会讲)</p>
+<p><code>target_include_directories(pelelmex PUBLIC $&lt;BUILD_INTERFACE:$&#123;CMAKE_CURRENT_LIST_DIR&#125;&gt;)</code></p>
+<p><code>set(PELE_CHEMISTRY_MODEL drm19 PARENT_SCOPE)</code><br><code>set(PELE_EOS_MODEL       Fuego PARENT_SCOPE)</code><br><code>set(PELE_TRANSPORT_MODEL Simple PARENT_SCOPE)</code><br><code>set(PELE_DIM &quot;2&quot; PARENT_SCOPE)</code><br><code>set(PELE_MPI ON PARENT_SCOPE)</code></p>
+<p><code>target_sources(pelelmex</code><br>    <code>PRIVATE</code><br>        <code>pelelmex_prob.cpp</code><br>        <code>pelelmex_prob.H</code><br>        <code>pelelmex_prob_parm.H</code><br>    <code>)</code></p>
+<p>第一行不用管，这是告诉系统寻找相关头文件和执行安装当前目录的</p>
+<p><code>set(PELE_CHEMISTRY_MODEL drm19 PARENT_SCOPE)</code> 使用drm19化学机理，amrex使用不同化学机理需要使用yaml格式文件转化（如果只有标准chemkin格式则需要先用ck2转化为yaml），详细的转化可以参考官网给的教程<a target="_blank" rel="noopener" href="https://amrex-combustion.github.io/PelePhysics/Ceptr.html#generating-pele-compatible-mechanisms-for-a-single-chemistry">CEPTR: Chemistry Evaluation for Pele Through Recasting — PelePhysics 2022.10 documentation (amrex-combustion.github.io)</a></p>
+<p>剩下的几行分别代表使用的状态模型（EOS），输运模型，计算维数，并行计算，以及目录下面的一些头文件等</p>
+<h3 id="2）GNUmakefile"><a href="#2）GNUmakefile" class="headerlink" title="2）GNUmakefile"></a>2）GNUmakefile</h3><p>上面的Cmakelist似乎对后面的编译操作影响不大（我一般是两个都改，但是make操作应该是只针对这个文件的，不懂，后面再看）<br>里面的文件也是进行相关的设置，值得注意的是，这里需要指定Pele的目录，如果你不是在案例目录操作则需要对应更改，推荐使用绝对路径</p>
+<p><code>PELE_HOME ?= ../../..</code><br><code>include $(PELE_HOME)/Exec/Make.PeleLMeX</code></p>
+<h3 id="3）pelelmex-Prob-cpp"><a href="#3）pelelmex-Prob-cpp" class="headerlink" title="3）pelelmex_Prob.cpp"></a>3）pelelmex_Prob.cpp</h3><p>这个文件只定义了一个函数，这个函数是用来读取input字典里面的初始条件参数的。</p>
+<p><code>PeleLM::readProbParm()</code></p>
+<p><code>&#123;****</code></p>
+<p><code>&#125;</code></p>
+<h3 id="4）pelelmex-prob-H"><a href="#4）pelelmex-prob-H" class="headerlink" title="4）pelelmex_prob.H"></a>4）pelelmex_prob.H</h3><p>这里具体定义了物理模型<br><em>&#x2F;&#x2F; Find the zone of the cell to identify the inflow, initial conditions and BC</em></p>
+<p><em>&#x2F;&#x2F; There are 4 zones : 1 &#x3D; Fuel inflow ; 2 &#x3D; Obstacle ; 3 &#x3D; Oxidizer inflow ; 4</em></p>
+<p><em>&#x2F;&#x2F; &#x3D; Air inflow Schema : [ 1 | 2 | 3 | 4 ]</em></p>
+<p>这是一个层流同轴扩散火焰的模型，其中1是燃料出口，2是墙壁，三是氧化剂出口，4是空气出口（这个在我的模型里目前没用到）</p>
+<p>具体代码实现</p>
+<p> <code>const amrex::Real* prob_lo = geomdata.ProbLo();</code></p>
+<p> <code>const amrex::Real* prob_hi = geomdata.ProbHi();</code></p>
+<p> <code>amrex::Real split12 = prob_lo[0] + prob_parm.Xf;</code></p>
+<p> <code>amrex::Real split23 = prob_lo[0] + prob_parm.Xf + prob_parm.Xe;</code></p>
+<p> <code>amrex::Real split34 = prob_lo[0] + prob_parm.Xf + prob_parm.Xe + prob_parm.Xc;</code></p>
+<p>所以如果要更改燃料碰嘴大小等，需要在input里面更改对应的参数</p>
+<p>这里的文件应该是每个网格读取一次，然后根据x的值返回对应zone的标签。接下来的代码包括设置点火，二次函数燃料出口等</p>
+<h3 id="5）pelelmex-prob-parm-H"><a href="#5）pelelmex-prob-parm-H" class="headerlink" title="5）pelelmex_prob_parm.H"></a>5）pelelmex_prob_parm.H</h3><p>设置相关的物理模型参数初始条件</p>
+<p>在input中也能改，且input的优先级要高于这个初始文件</p>
+<h3 id="6）input"><a href="#6）input" class="headerlink" title="6）input"></a>6）input</h3><h4 id="DOMAIN-DEFINITION"><a href="#DOMAIN-DEFINITION" class="headerlink" title="DOMAIN DEFINITION"></a>DOMAIN DEFINITION</h4><p><code>#----------------------DOMAIN DEFINITION------------------------</code><br><code>prob.Xmax = 0.0185 #Maximum size in the x direction</code><br><code>prob.Ymax = 0.037 #Maximum size in the y direction</code><br><code>prob.Zmax = 0.0185 #Maximum size in the z direction</code></p>
+<p>展示不清楚这个和下面有什么区别，先不动</p>
+<p>geometry.is_periodic &#x3D; 0 0                          # For each dir, 0: non-perio,periodic<br>geometry.coord_sys   &#x3D; 1                              # 0 &#x3D;&gt; cart, 1 &#x3D;&gt; RZ<br>geometry.prob_lo     &#x3D; 0.0 0.0                   # x_lo y_lo (z_lo)<br>geometry.prob_hi     &#x3D; 0.0185 0.037             # x_hi y_hi (z_hi)</p>
+<p>第一个设置周期边界条件，第二个设置轴对称模型，第三个设置矩形的对角</p>
+<h4 id="BC-FLAGS"><a href="#BC-FLAGS" class="headerlink" title="BC FLAGS"></a>BC FLAGS</h4><p>Interior, Inflow, Outflow, Symmetry,</p>
+<p>SlipWallAdiab, NoSlipWallAdiab, SlipWallIsotherm, NoSlipWallIsotherm</p>
+<p>peleLM.lo_bc &#x3D; Symmetry      Inflow<br>peleLM.hi_bc &#x3D; SlipWallAdiab Outflow<br>设置对应的边界条件，不用改动</p>
+<h4 id="AMR-CONTROL"><a href="#AMR-CONTROL" class="headerlink" title="AMR CONTROL"></a>AMR CONTROL</h4><p>amr.n_cell          &#x3D; 128 256 32        # Level 0 number of cells in each direction<br>amr.v               &#x3D; 1                # AMR verbose  输出日志的详细程度<br>amr.max_level       &#x3D; 1                # maximum level number allowed  最大细化等级，0代表不使用AMR<br>amr.ref_ratio       &#x3D; 2 2 2 2          # refinement ratio  对应每个方向上细化率，2代表细化一倍，第一个2代表从0level -1level 的细化倍率，以此类推<br>amr.regrid_int      &#x3D; 2                # how often to regrid<br>amr.n_error_buf     &#x3D; 4 2 2 2          # number of buffer cells in error est<br>amr.grid_eff        &#x3D; 0.7              # what constitutes an efficient grid<br>amr.blocking_factor &#x3D; 16               # block factor in grid generation (min box size)<br>amr.max_grid_size   &#x3D; 64              # max box size</p>
+<p>意思见注释</p>
+<h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>#————————— Problem ——————————-<br>prob.Xf &#x3D; 0.0011    # Radius of the fuel pipe<br>prob.Xe &#x3D; 0.0001    # Thickness of the extruded tube<br>prob.Xc &#x3D; 0.0113    # Size of the oxidizer fuel</p>
+<p>prob.Yin &#x3D; 0.003  # Height of the inflow entrance at t&#x3D;0s<br>prob.V_fu &#x3D; 0.15  # Speed of the fuel in inflow<br>prob.V_ox &#x3D; 0.031 # Speed of the oxidizer in inflow<br>prob.V_air &#x3D; 0.0  # Speed of the air flow around the burner<br>prob.T_fu &#x3D; 300   # Temperature of the fuel<br>prob.T_ox &#x3D; 300   # Temperature of the oxidizer<br>prob.T_air &#x3D; 300  # Temperature of the air<br>prob.T_obst &#x3D; 450 # Temperature of the fuel pipe (&#x3D;obstacle)</p>
+<p>prob.do_ignition &#x3D; 1    # Do you want to do ignition ?<br>prob.ign_rad &#x3D; 0.001    # Size of the ignition blob<br>prob.ign_T &#x3D; 1900       # Temperature inside the ignition blob</p>
+<p>prob.P_mean &#x3D; 100000.0 # Ambient pressure in the chamber</p>
+<p>prob.dilution &#x3D; 0.7 # Proportion of CH4 in the fuel mix. Ch4 is diluted in N2</p>
+<p>见字面意思，注意这里dilution0.7代表燃料的质量分数</p>
+<h4 id="PeleLM-CONTROL"><a href="#PeleLM-CONTROL" class="headerlink" title="PeleLM CONTROL"></a>PeleLM CONTROL</h4><p>#————————-PeleLM CONTROL—————————-<br>peleLM.gravity &#x3D; 0.0 -9.81 0.0</p>
+<p>peleLM.v &#x3D; 2   输出日志等级<br>peleLM.incompressible &#x3D; 0    0代表可压缩流体<br>peleLM.rho &#x3D; 1.17<br>peleLM.mu &#x3D; 0.0<br>peleLM.use_wbar &#x3D; 1    指定是否使用分子量平均，<code>1</code> 表示开启。<br>peleLM.sdc_iterMax &#x3D; 2<br>peleLM.floor_species &#x3D; 0<br>peleLM.num_init_iter &#x3D; 3<br>peleLM.advection_scheme &#x3D; “Godunov_PLM”  指定对流的数值方案，这里使用 “Godunov_PLM”（Piecewise Linear Method），通常是一种高分辨率方案<br>peleLM.do_temporals &#x3D; 1 # use to calculate the integrals<br>peleLM.do_mass_balance &#x3D; 1    否进行质量守恒计算，<code>1</code> 表示启用。<br>#peleLM.deltaT_verbose &#x3D; 1     控制时间步调节信息输出的详细程度。<br>peleLM.deltaT_iterMax &#x3D; 15         调整时间步的最大迭代次数。</p>
+<h4 id="AMR-CONTROL-1"><a href="#AMR-CONTROL-1" class="headerlink" title="AMR CONTROL"></a>AMR CONTROL</h4><p>#amr.restart &#x3D; chk05000<br>amr.check_int &#x3D; 100<br>amr.plot_int &#x3D; 100<br>amr.max_step &#x3D; 100<br>amr.dt_shrink &#x3D; 0.01    时间步缩减因子，初始时用较小的时间步以保证稳定性。<br>#amr.stop_time &#x3D; 0.001<br>amr.init_dt &#x3D; 0.000001  初始迭代次数，在时间积分开始前进行的初始化迭代次数。<br>amr.cfl &#x3D; 0.05<br>amr.derive_plot_vars &#x3D; avg_pressure mag_vort mass_fractions</p>
+<p>peleLM.chem_integrator &#x3D; “ReactorCvode”        使用 CVODE 进行化学积分<br>peleLM.use_typ_vals_chem &#x3D; 1          # Use species&#x2F;temp typical values in CVODE<br>ode.rtol &#x3D; 1.0e-7                     # Relative tolerance of the chemical solve<br>ode.atol &#x3D; 1.0e-6                     # Absolute tolerance factor applied on typical values<br>cvode.solve_type &#x3D; denseAJ_direct     # CVODE Linear solve type (for Newton direction)<br>cvode.max_order  &#x3D; 4                  # CVODE max BDF order. </p>
+<h4 id="REFINEMENT-CONTROL"><a href="#REFINEMENT-CONTROL" class="headerlink" title="REFINEMENT CONTROL"></a>REFINEMENT CONTROL</h4><p>#——————–REFINEMENT CONTROL————————<br>amr.refinement_indicators &#x3D; HR    <code>HR</code>（Heat Release，即热释放率) 根据热释率进行细化<br>amr.HR.max_level     &#x3D; 1    设置 <code>HR</code> 指标的最大细化层级为 <code>1</code>，这意味着网格在满足该细化条件的区域最多可以细化到 Level 1。<br>amr.HR.value_greater &#x3D; 5e7      如果某区域的热释放率大于 <code>5e7</code>，则触发网格细化。<br>amr.HR.field_name    &#x3D; HeatRelease    指定用于细化条件的字段名称为 <code>HeatRelease</code>。这通常是由求解器计算出的一个场变量，代表燃烧过程中热释放的速率。</p>
+<p>#amr.refinement_indicators &#x3D; magVort      涡量幅度（<code>mag_vort</code>）来细化网格。<br>#amr.magVort.max_level     &#x3D; 1<br>#amr.magVort.value_greater &#x3D; 500.0<br>#amr.magVort.field_name    &#x3D; mag_vort</p>
+<p>#amr.refinement_indicators &#x3D; boxNoz    这个指标用于根据几何区域（box）的范围来细化网格，通常用于细化某些特定物理区域，例如喷嘴。<br>#amr.boxNoz.max_level     &#x3D; 3    网格细化最大层级为 <code>3</code>，比其他指标的层级更高。<br>#amr.boxNoz.in_box_lo &#x3D; 0.000 0.0    指定用于细化的几何区域，范围在 <code>in_box_lo</code> 和 <code>in_box_hi</code> 之间。这里区域在二维平面上，限定了细化的空间范围。<br>#amr.boxNoz.in_box_hi &#x3D; 0.0045 0.0045      </p>
+<p>#amrex.fpe_trap_invalid &#x3D; 1   启用对非法浮点操作的捕获，例如计算未定义的操作（如 <code>NaN</code>）。<br>#amrex.fpe_trap_zero &#x3D; 1   启用对除零操作的捕获，如果浮点运算中发生了除零错误，将触发异常。<br>#amrex.fpe_trap_overflow &#x3D; 1      启用对浮点运算溢出的捕获，当浮点数超过最大范围导致溢出时触发异常。</p>
 
                 
               </div>
@@ -323,8 +371,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>个人博客搭建指南</div>
-      <div>http://example.com/2024/10/04/个人博客搭建指南/</div>
+      <div>使用Amrex计算碳烟</div>
+      <div>http://example.com/2024/10/05/使用Amrex计算碳烟/</div>
     </div>
     <div class="license-meta">
       
@@ -336,7 +384,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月4日</div>
+          <div>2024年10月5日</div>
         </div>
       
       
@@ -368,18 +416,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/10/05/%E4%BD%BF%E7%94%A8Amrex%E8%AE%A1%E7%AE%97%E7%A2%B3%E7%83%9F/" title="使用Amrex计算碳烟">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用Amrex计算碳烟</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/10/02/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章">
-                        <span class="hidden-mobile">测试文章</span>
+                      <a href="/2024/10/04/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" title="个人博客搭建指南">
+                        <span class="hidden-mobile">个人博客搭建指南</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

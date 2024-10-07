@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          1.9k 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          18 分钟
+          16 分钟
         
       </span>
     
@@ -301,10 +301,10 @@
                 
                 <h1 id="Amrex的安装"><a href="#Amrex的安装" class="headerlink" title="Amrex的安装"></a>Amrex的安装</h1><p>Amrex主要由三个部分构成：PelePhysics PeleLMeX PeleC ,我们这里计算碳烟主要是用到了前两个，PelePhysics主要提供化学计算，而后者提供流体求解器，具体的说明和安装可以参考<a target="_blank" rel="noopener" href="https://amrex-combustion.github.io/">AMReX-Combustion: Suite of adaptive mesh reacting flow codes for reacting flows</a></p>
 <h1 id="常见BUG总结"><a href="#常见BUG总结" class="headerlink" title="常见BUG总结"></a>常见BUG总结</h1><p>（1）</p>
-<p> &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br><code>&lt;!--Est. time step - Conv: 2.348325225e-06, divu: 0.0007054938829--&gt;&lt;!--STEP [30000] - Time: 0.1481225918, dt 2.348325225e-06--&gt;&lt;!--0::Assertionamrlev &gt;= 0 &amp;&amp; amrlev &lt; this-&gt;m_num_amr_levels&#39; failed, file &quot;/home/zhangjiaqian/PelePhysics/Submodules/amrex/Src/LinearSolvers/MLMG/AMReX_MLCellLinOp.H&quot;, line 504 !!!--&gt;</code><br><code>&lt;!--SIGABRT--&gt;</code><br>在添加辐射模块的时候，提示遇到断言错误，这是因为mx_level的大小和ref_ratio的数量没有保持一致导致的，如果设置了多层次细化比率，请确保其大小与 <code>amr.max_level</code> 一致。<br><code>amr.max_level       = 2                # maximum level number allowed</code><br><code>amr.ref_ratio       = 2 2            # refinement ratio</code></p>
+<p> ==============================================================================<br><code>&lt;!--Est. time step - Conv: 2.348325225e-06, divu: 0.0007054938829--&gt;&lt;!--STEP [30000] - Time: 0.1481225918, dt 2.348325225e-06--&gt;&lt;!--0::Assertionamrlev &gt;= 0 &amp;&amp; amrlev &lt; this-&gt;m_num_amr_levels&#39; failed, file &quot;/home/zhangjiaqian/PelePhysics/Submodules/amrex/Src/LinearSolvers/MLMG/AMReX_MLCellLinOp.H&quot;, line 504 !!!--&gt;</code><br><code>&lt;!--SIGABRT--&gt;</code><br>在添加辐射模块的时候，提示遇到断言错误，这是因为mx_level的大小和ref_ratio的数量没有保持一致导致的，如果设置了多层次细化比率，请确保其大小与 <code>amr.max_level</code> 一致。<br><code>amr.max_level       = 2                # maximum level number allowed</code><br><code>amr.ref_ratio       = 2 2            # refinement ratio</code></p>
 <p>同时因为不知道的bug,这里如果直接启动还是会报错，建议先算几步，然后在input里面指定重新计算</p>
 <h1 id="燃烧配置"><a href="#燃烧配置" class="headerlink" title="燃烧配置"></a>燃烧配置</h1><h2 id="1物理建模"><a href="#1物理建模" class="headerlink" title="1物理建模"></a>1物理建模</h2><p>由于Amrex是使用自适应网格技术，它的一个最大的优点就是不用自己画网格，调节粗细。这里采用我们实验室的燃烧器计算图纸进行建模。</p>
-<p><img src="/images/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E5%9B%BE%E7%BA%B8.jpg" srcset="/img/loading.gif" lazyload alt="燃烧器模型"></p>
+<p><img src="/images/实验室图纸.jpg" srcset="/img/loading.gif" lazyload alt="燃烧器模型"></p>
 <p>选择项目提供的案例里最相近的模型进行修改，这里我们选择PeleLMeX\Exec\Production\DiffBunsen2D</p>
 <p>案例文件，从文件名上也可以看出这是一个二维扩散本生灯相关的案例。</p>
 <h3 id="1）CMakeLists-txt"><a href="#1）CMakeLists-txt" class="headerlink" title="1）CMakeLists.txt"></a>1）CMakeLists.txt</h3><p>先看看CMakeLists.txt(值得说明的是AMREX为大规模并行计算设计的结构非常好，它使用了编译可执行文件+Input文本的方式进行计算，而不依赖其它相关项，这里后面也会讲)</p>
@@ -320,9 +320,9 @@
 <p><code>PeleLM::readProbParm()</code></p>
 <p><code>&#123;****</code></p>
 <p><code>&#125;</code></p>
-<h3 id="4）pelelmex-prob-H"><a href="#4）pelelmex-prob-H" class="headerlink" title="4）pelelmex_prob.H"></a>4）pelelmex_prob.H</h3><p>这里具体定义了物理模型<br><em>&#x2F;&#x2F; Find the zone of the cell to identify the inflow, initial conditions and BC</em></p>
-<p><em>&#x2F;&#x2F; There are 4 zones : 1 &#x3D; Fuel inflow ; 2 &#x3D; Obstacle ; 3 &#x3D; Oxidizer inflow ; 4</em></p>
-<p><em>&#x2F;&#x2F; &#x3D; Air inflow Schema : [ 1 | 2 | 3 | 4 ]</em></p>
+<h3 id="4）pelelmex-prob-H"><a href="#4）pelelmex-prob-H" class="headerlink" title="4）pelelmex_prob.H"></a>4）pelelmex_prob.H</h3><p>这里具体定义了物理模型<br><em>// Find the zone of the cell to identify the inflow, initial conditions and BC</em></p>
+<p><em>// There are 4 zones : 1 = Fuel inflow ; 2 = Obstacle ; 3 = Oxidizer inflow ; 4</em></p>
+<p><em>// = Air inflow Schema : [ 1 | 2 | 3 | 4 ]</em></p>
 <p>这是一个层流同轴扩散火焰的模型，其中1是燃料出口，2是墙壁，三是氧化剂出口，4是空气出口（这个在我的模型里目前没用到）</p>
 <p>具体代码实现</p>
 <p> <code>const amrex::Real* prob_lo = geomdata.ProbLo();</code></p>
@@ -336,28 +336,27 @@
 <p>在input中也能改，且input的优先级要高于这个初始文件</p>
 <h3 id="6）input"><a href="#6）input" class="headerlink" title="6）input"></a>6）input</h3><h4 id="DOMAIN-DEFINITION"><a href="#DOMAIN-DEFINITION" class="headerlink" title="DOMAIN DEFINITION"></a>DOMAIN DEFINITION</h4><p><code>#----------------------DOMAIN DEFINITION------------------------</code><br><code>prob.Xmax = 0.0185 #Maximum size in the x direction</code><br><code>prob.Ymax = 0.037 #Maximum size in the y direction</code><br><code>prob.Zmax = 0.0185 #Maximum size in the z direction</code></p>
 <p>展示不清楚这个和下面有什么区别，先不动</p>
-<p>geometry.is_periodic &#x3D; 0 0                          # For each dir, 0: non-perio,periodic<br>geometry.coord_sys   &#x3D; 1                              # 0 &#x3D;&gt; cart, 1 &#x3D;&gt; RZ<br>geometry.prob_lo     &#x3D; 0.0 0.0                   # x_lo y_lo (z_lo)<br>geometry.prob_hi     &#x3D; 0.0185 0.037             # x_hi y_hi (z_hi)</p>
+<p>geometry.is_periodic = 0 0                          # For each dir, 0: non-perio,periodic<br>geometry.coord_sys   = 1                              # 0 =&gt; cart, 1 =&gt; RZ<br>geometry.prob_lo     = 0.0 0.0                   # x_lo y_lo (z_lo)<br>geometry.prob_hi     = 0.0185 0.037             # x_hi y_hi (z_hi)</p>
 <p>第一个设置周期边界条件，第二个设置轴对称模型，第三个设置矩形的对角</p>
 <h4 id="BC-FLAGS"><a href="#BC-FLAGS" class="headerlink" title="BC FLAGS"></a>BC FLAGS</h4><p>Interior, Inflow, Outflow, Symmetry,</p>
 <p>SlipWallAdiab, NoSlipWallAdiab, SlipWallIsotherm, NoSlipWallIsotherm</p>
-<p>peleLM.lo_bc &#x3D; Symmetry      Inflow<br>peleLM.hi_bc &#x3D; SlipWallAdiab Outflow<br>设置对应的边界条件，不用改动</p>
-<h4 id="AMR-CONTROL"><a href="#AMR-CONTROL" class="headerlink" title="AMR CONTROL"></a>AMR CONTROL</h4><p>amr.n_cell          &#x3D; 128 256 32        # Level 0 number of cells in each direction<br>amr.v               &#x3D; 1                # AMR verbose  输出日志的详细程度<br>amr.max_level       &#x3D; 1                # maximum level number allowed  最大细化等级，0代表不使用AMR<br>amr.ref_ratio       &#x3D; 2 2 2 2          # refinement ratio  对应每个方向上细化率，2代表细化一倍，第一个2代表从0level -1level 的细化倍率，以此类推<br>amr.regrid_int      &#x3D; 2                # how often to regrid<br>amr.n_error_buf     &#x3D; 4 2 2 2          # number of buffer cells in error est<br>amr.grid_eff        &#x3D; 0.7              # what constitutes an efficient grid<br>amr.blocking_factor &#x3D; 16               # block factor in grid generation (min box size)<br>amr.max_grid_size   &#x3D; 64              # max box size</p>
+<p>peleLM.lo_bc = Symmetry      Inflow<br>peleLM.hi_bc = SlipWallAdiab Outflow<br>设置对应的边界条件，不用改动</p>
+<h4 id="AMR-CONTROL"><a href="#AMR-CONTROL" class="headerlink" title="AMR CONTROL"></a>AMR CONTROL</h4><p>amr.n_cell          = 128 256 32        # Level 0 number of cells in each direction<br>amr.v               = 1                # AMR verbose  输出日志的详细程度<br>amr.max_level       = 1                # maximum level number allowed  最大细化等级，0代表不使用AMR<br>amr.ref_ratio       = 2 2 2 2          # refinement ratio  对应每个方向上细化率，2代表细化一倍，第一个2代表从0level -1level 的细化倍率，以此类推<br>amr.regrid_int      = 2                # how often to regrid<br>amr.n_error_buf     = 4 2 2 2          # number of buffer cells in error est<br>amr.grid_eff        = 0.7              # what constitutes an efficient grid<br>amr.blocking_factor = 16               # block factor in grid generation (min box size)<br>amr.max_grid_size   = 64              # max box size</p>
 <p>意思见注释</p>
-<h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>#————————— Problem ——————————-<br>prob.Xf &#x3D; 0.0011    # Radius of the fuel pipe<br>prob.Xe &#x3D; 0.0001    # Thickness of the extruded tube<br>prob.Xc &#x3D; 0.0113    # Size of the oxidizer fuel</p>
-<p>prob.Yin &#x3D; 0.003  # Height of the inflow entrance at t&#x3D;0s<br>prob.V_fu &#x3D; 0.15  # Speed of the fuel in inflow<br>prob.V_ox &#x3D; 0.031 # Speed of the oxidizer in inflow<br>prob.V_air &#x3D; 0.0  # Speed of the air flow around the burner<br>prob.T_fu &#x3D; 300   # Temperature of the fuel<br>prob.T_ox &#x3D; 300   # Temperature of the oxidizer<br>prob.T_air &#x3D; 300  # Temperature of the air<br>prob.T_obst &#x3D; 450 # Temperature of the fuel pipe (&#x3D;obstacle)</p>
-<p>prob.do_ignition &#x3D; 1    # Do you want to do ignition ?<br>prob.ign_rad &#x3D; 0.001    # Size of the ignition blob<br>prob.ign_T &#x3D; 1900       # Temperature inside the ignition blob</p>
-<p>prob.P_mean &#x3D; 100000.0 # Ambient pressure in the chamber</p>
-<p>prob.dilution &#x3D; 0.7 # Proportion of CH4 in the fuel mix. Ch4 is diluted in N2</p>
+<h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><h1 id="—————————————-Problem-———————————————"><a href="#—————————————-Problem-———————————————" class="headerlink" title="—————————————- Problem ———————————————-"></a>—————————————- Problem ———————————————-</h1><p>prob.Xf = 0.0011    # Radius of the fuel pipe<br>prob.Xe = 0.0001    # Thickness of the extruded tube<br>prob.Xc = 0.0113    # Size of the oxidizer fuel</p>
+<p>prob.Yin = 0.003  # Height of the inflow entrance at t=0s<br>prob.V_fu = 0.15  # Speed of the fuel in inflow<br>prob.V_ox = 0.031 # Speed of the oxidizer in inflow<br>prob.V_air = 0.0  # Speed of the air flow around the burner<br>prob.T_fu = 300   # Temperature of the fuel<br>prob.T_ox = 300   # Temperature of the oxidizer<br>prob.T_air = 300  # Temperature of the air<br>prob.T_obst = 450 # Temperature of the fuel pipe (=obstacle)</p>
+<p>prob.do_ignition = 1    # Do you want to do ignition ?<br>prob.ign_rad = 0.001    # Size of the ignition blob<br>prob.ign_T = 1900       # Temperature inside the ignition blob</p>
+<p>prob.P_mean = 100000.0 # Ambient pressure in the chamber</p>
+<p>prob.dilution = 0.7 # Proportion of CH4 in the fuel mix. Ch4 is diluted in N2</p>
 <p>见字面意思，注意这里dilution0.7代表燃料的质量分数</p>
-<h4 id="PeleLM-CONTROL"><a href="#PeleLM-CONTROL" class="headerlink" title="PeleLM CONTROL"></a>PeleLM CONTROL</h4><p>#————————-PeleLM CONTROL—————————-<br>peleLM.gravity &#x3D; 0.0 -9.81 0.0</p>
-<p>peleLM.v &#x3D; 2   输出日志等级<br>peleLM.incompressible &#x3D; 0    0代表可压缩流体<br>peleLM.rho &#x3D; 1.17<br>peleLM.mu &#x3D; 0.0<br>peleLM.use_wbar &#x3D; 1    指定是否使用分子量平均，<code>1</code> 表示开启。<br>peleLM.sdc_iterMax &#x3D; 2<br>peleLM.floor_species &#x3D; 0<br>peleLM.num_init_iter &#x3D; 3<br>peleLM.advection_scheme &#x3D; “Godunov_PLM”  指定对流的数值方案，这里使用 “Godunov_PLM”（Piecewise Linear Method），通常是一种高分辨率方案<br>peleLM.do_temporals &#x3D; 1 # use to calculate the integrals<br>peleLM.do_mass_balance &#x3D; 1    否进行质量守恒计算，<code>1</code> 表示启用。<br>#peleLM.deltaT_verbose &#x3D; 1     控制时间步调节信息输出的详细程度。<br>peleLM.deltaT_iterMax &#x3D; 15         调整时间步的最大迭代次数。</p>
-<h4 id="AMR-CONTROL-1"><a href="#AMR-CONTROL-1" class="headerlink" title="AMR CONTROL"></a>AMR CONTROL</h4><p>#amr.restart &#x3D; chk05000<br>amr.check_int &#x3D; 100<br>amr.plot_int &#x3D; 100<br>amr.max_step &#x3D; 100<br>amr.dt_shrink &#x3D; 0.01    时间步缩减因子，初始时用较小的时间步以保证稳定性。<br>#amr.stop_time &#x3D; 0.001<br>amr.init_dt &#x3D; 0.000001  初始迭代次数，在时间积分开始前进行的初始化迭代次数。<br>amr.cfl &#x3D; 0.05<br>amr.derive_plot_vars &#x3D; avg_pressure mag_vort mass_fractions</p>
-<p>peleLM.chem_integrator &#x3D; “ReactorCvode”        使用 CVODE 进行化学积分<br>peleLM.use_typ_vals_chem &#x3D; 1          # Use species&#x2F;temp typical values in CVODE<br>ode.rtol &#x3D; 1.0e-7                     # Relative tolerance of the chemical solve<br>ode.atol &#x3D; 1.0e-6                     # Absolute tolerance factor applied on typical values<br>cvode.solve_type &#x3D; denseAJ_direct     # CVODE Linear solve type (for Newton direction)<br>cvode.max_order  &#x3D; 4                  # CVODE max BDF order. </p>
-<h4 id="REFINEMENT-CONTROL"><a href="#REFINEMENT-CONTROL" class="headerlink" title="REFINEMENT CONTROL"></a>REFINEMENT CONTROL</h4><p>#——————–REFINEMENT CONTROL————————<br>amr.refinement_indicators &#x3D; HR    <code>HR</code>（Heat Release，即热释放率) 根据热释率进行细化<br>amr.HR.max_level     &#x3D; 1    设置 <code>HR</code> 指标的最大细化层级为 <code>1</code>，这意味着网格在满足该细化条件的区域最多可以细化到 Level 1。<br>amr.HR.value_greater &#x3D; 5e7      如果某区域的热释放率大于 <code>5e7</code>，则触发网格细化。<br>amr.HR.field_name    &#x3D; HeatRelease    指定用于细化条件的字段名称为 <code>HeatRelease</code>。这通常是由求解器计算出的一个场变量，代表燃烧过程中热释放的速率。</p>
-<p>#amr.refinement_indicators &#x3D; magVort      涡量幅度（<code>mag_vort</code>）来细化网格。<br>#amr.magVort.max_level     &#x3D; 1<br>#amr.magVort.value_greater &#x3D; 500.0<br>#amr.magVort.field_name    &#x3D; mag_vort</p>
-<p>#amr.refinement_indicators &#x3D; boxNoz    这个指标用于根据几何区域（box）的范围来细化网格，通常用于细化某些特定物理区域，例如喷嘴。<br>#amr.boxNoz.max_level     &#x3D; 3    网格细化最大层级为 <code>3</code>，比其他指标的层级更高。<br>#amr.boxNoz.in_box_lo &#x3D; 0.000 0.0    指定用于细化的几何区域，范围在 <code>in_box_lo</code> 和 <code>in_box_hi</code> 之间。这里区域在二维平面上，限定了细化的空间范围。<br>#amr.boxNoz.in_box_hi &#x3D; 0.0045 0.0045      </p>
-<p>#amrex.fpe_trap_invalid &#x3D; 1   启用对非法浮点操作的捕获，例如计算未定义的操作（如 <code>NaN</code>）。<br>#amrex.fpe_trap_zero &#x3D; 1   启用对除零操作的捕获，如果浮点运算中发生了除零错误，将触发异常。<br>#amrex.fpe_trap_overflow &#x3D; 1      启用对浮点运算溢出的捕获，当浮点数超过最大范围导致溢出时触发异常。</p>
-
+<h4 id="PeleLM-CONTROL"><a href="#PeleLM-CONTROL" class="headerlink" title="PeleLM CONTROL"></a>PeleLM CONTROL</h4><h1 id="————————————-PeleLM-CONTROL——————————————"><a href="#————————————-PeleLM-CONTROL——————————————" class="headerlink" title="————————————-PeleLM CONTROL——————————————"></a>————————————-PeleLM CONTROL——————————————</h1><p>peleLM.gravity = 0.0 -9.81 0.0</p>
+<p>peleLM.v = 2   输出日志等级<br>peleLM.incompressible = 0    0代表可压缩流体<br>peleLM.rho = 1.17<br>peleLM.mu = 0.0<br>peleLM.use_wbar = 1    指定是否使用分子量平均，<code>1</code> 表示开启。<br>peleLM.sdc_iterMax = 2<br>peleLM.floor_species = 0<br>peleLM.num_init_iter = 3<br>peleLM.advection_scheme = “Godunov_PLM”  指定对流的数值方案，这里使用 “Godunov_PLM”（Piecewise Linear Method），通常是一种高分辨率方案<br>peleLM.do_temporals = 1 # use to calculate the integrals<br>peleLM.do_mass_balance = 1    否进行质量守恒计算，<code>1</code> 表示启用。</p>
+<h1 id="peleLM-deltaT-verbose-1-控制时间步调节信息输出的详细程度。"><a href="#peleLM-deltaT-verbose-1-控制时间步调节信息输出的详细程度。" class="headerlink" title="peleLM.deltaT_verbose = 1     控制时间步调节信息输出的详细程度。"></a>peleLM.deltaT_verbose = 1     控制时间步调节信息输出的详细程度。</h1><p>peleLM.deltaT_iterMax = 15         调整时间步的最大迭代次数。</p>
+<h4 id="AMR-CONTROL-1"><a href="#AMR-CONTROL-1" class="headerlink" title="AMR CONTROL"></a>AMR CONTROL</h4><h1 id="amr-restart-chk05000"><a href="#amr-restart-chk05000" class="headerlink" title="amr.restart = chk05000"></a>amr.restart = chk05000</h1><p>amr.check_int = 100<br>amr.plot_int = 100<br>amr.max_step = 100<br>amr.dt_shrink = 0.01    时间步缩减因子，初始时用较小的时间步以保证稳定性。</p>
+<h1 id="amr-stop-time-0-001"><a href="#amr-stop-time-0-001" class="headerlink" title="amr.stop_time = 0.001"></a>amr.stop_time = 0.001</h1><p>amr.init_dt = 0.000001  初始迭代次数，在时间积分开始前进行的初始化迭代次数。<br>amr.cfl = 0.05<br>amr.derive_plot_vars = avg_pressure mag_vort mass_fractions</p>
+<p>peleLM.chem_integrator = “ReactorCvode”        使用 CVODE 进行化学积分<br>peleLM.use_typ_vals_chem = 1          # Use species/temp typical values in CVODE<br>ode.rtol = 1.0e-7                     # Relative tolerance of the chemical solve<br>ode.atol = 1.0e-6                     # Absolute tolerance factor applied on typical values<br>cvode.solve_type = denseAJ_direct     # CVODE Linear solve type (for Newton direction)<br>cvode.max_order  = 4                  # CVODE max BDF order. </p>
+<h4 id="REFINEMENT-CONTROL"><a href="#REFINEMENT-CONTROL" class="headerlink" title="REFINEMENT CONTROL"></a>REFINEMENT CONTROL</h4><h1 id="——————————REFINEMENT-CONTROL————————————"><a href="#——————————REFINEMENT-CONTROL————————————" class="headerlink" title="——————————REFINEMENT CONTROL————————————"></a>——————————REFINEMENT CONTROL————————————</h1><p>amr.refinement_indicators = HR    <code>HR</code>（Heat Release，即热释放率) 根据热释率进行细化<br>amr.HR.max_level     = 1    设置 <code>HR</code> 指标的最大细化层级为 <code>1</code>，这意味着网格在满足该细化条件的区域最多可以细化到 Level 1。<br>amr.HR.value_greater = 5e7      如果某区域的热释放率大于 <code>5e7</code>，则触发网格细化。<br>amr.HR.field_name    = HeatRelease    指定用于细化条件的字段名称为 <code>HeatRelease</code>。这通常是由求解器计算出的一个场变量，代表燃烧过程中热释放的速率。</p>
+<h1 id="amr-refinement-indicators-magVort-涡量幅度（mag-vort）来细化网格。"><a href="#amr-refinement-indicators-magVort-涡量幅度（mag-vort）来细化网格。" class="headerlink" title="amr.refinement_indicators = magVort      涡量幅度（mag_vort）来细化网格。"></a>amr.refinement_indicators = magVort      涡量幅度（<code>mag_vort</code>）来细化网格。</h1><h1 id="amr-magVort-max-level-1"><a href="#amr-magVort-max-level-1" class="headerlink" title="amr.magVort.max_level     = 1"></a>amr.magVort.max_level     = 1</h1><h1 id="amr-magVort-value-greater-500-0"><a href="#amr-magVort-value-greater-500-0" class="headerlink" title="amr.magVort.value_greater = 500.0"></a>amr.magVort.value_greater = 500.0</h1><h1 id="amr-magVort-field-name-mag-vort"><a href="#amr-magVort-field-name-mag-vort" class="headerlink" title="amr.magVort.field_name    = mag_vort"></a>amr.magVort.field_name    = mag_vort</h1><h1 id="amr-refinement-indicators-boxNoz-这个指标用于根据几何区域（box）的范围来细化网格，通常用于细化某些特定物理区域，例如喷嘴。"><a href="#amr-refinement-indicators-boxNoz-这个指标用于根据几何区域（box）的范围来细化网格，通常用于细化某些特定物理区域，例如喷嘴。" class="headerlink" title="amr.refinement_indicators = boxNoz    这个指标用于根据几何区域（box）的范围来细化网格，通常用于细化某些特定物理区域，例如喷嘴。"></a>amr.refinement_indicators = boxNoz    这个指标用于根据几何区域（box）的范围来细化网格，通常用于细化某些特定物理区域，例如喷嘴。</h1><h1 id="amr-boxNoz-max-level-3-网格细化最大层级为-3，比其他指标的层级更高。"><a href="#amr-boxNoz-max-level-3-网格细化最大层级为-3，比其他指标的层级更高。" class="headerlink" title="amr.boxNoz.max_level     = 3    网格细化最大层级为 3，比其他指标的层级更高。"></a>amr.boxNoz.max_level     = 3    网格细化最大层级为 <code>3</code>，比其他指标的层级更高。</h1><h1 id="amr-boxNoz-in-box-lo-0-000-0-0-指定用于细化的几何区域，范围在-in-box-lo-和-in-box-hi-之间。这里区域在二维平面上，限定了细化的空间范围。"><a href="#amr-boxNoz-in-box-lo-0-000-0-0-指定用于细化的几何区域，范围在-in-box-lo-和-in-box-hi-之间。这里区域在二维平面上，限定了细化的空间范围。" class="headerlink" title="amr.boxNoz.in_box_lo = 0.000 0.0    指定用于细化的几何区域，范围在 in_box_lo 和 in_box_hi 之间。这里区域在二维平面上，限定了细化的空间范围。"></a>amr.boxNoz.in_box_lo = 0.000 0.0    指定用于细化的几何区域，范围在 <code>in_box_lo</code> 和 <code>in_box_hi</code> 之间。这里区域在二维平面上，限定了细化的空间范围。</h1><h1 id="amr-boxNoz-in-box-hi-0-0045-0-0045"><a href="#amr-boxNoz-in-box-hi-0-0045-0-0045" class="headerlink" title="amr.boxNoz.in_box_hi = 0.0045 0.0045"></a>amr.boxNoz.in_box_hi = 0.0045 0.0045</h1><h1 id="amrex-fpe-trap-invalid-1-启用对非法浮点操作的捕获，例如计算未定义的操作（如-NaN）。"><a href="#amrex-fpe-trap-invalid-1-启用对非法浮点操作的捕获，例如计算未定义的操作（如-NaN）。" class="headerlink" title="amrex.fpe_trap_invalid = 1   启用对非法浮点操作的捕获，例如计算未定义的操作（如 NaN）。"></a>amrex.fpe_trap_invalid = 1   启用对非法浮点操作的捕获，例如计算未定义的操作（如 <code>NaN</code>）。</h1><h1 id="amrex-fpe-trap-zero-1-启用对除零操作的捕获，如果浮点运算中发生了除零错误，将触发异常。"><a href="#amrex-fpe-trap-zero-1-启用对除零操作的捕获，如果浮点运算中发生了除零错误，将触发异常。" class="headerlink" title="amrex.fpe_trap_zero = 1   启用对除零操作的捕获，如果浮点运算中发生了除零错误，将触发异常。"></a>amrex.fpe_trap_zero = 1   启用对除零操作的捕获，如果浮点运算中发生了除零错误，将触发异常。</h1><h1 id="amrex-fpe-trap-overflow-1-启用对浮点运算溢出的捕获，当浮点数超过最大范围导致溢出时触发异常。"><a href="#amrex-fpe-trap-overflow-1-启用对浮点运算溢出的捕获，当浮点数超过最大范围导致溢出时触发异常。" class="headerlink" title="amrex.fpe_trap_overflow = 1      启用对浮点运算溢出的捕获，当浮点数超过最大范围导致溢出时触发异常。"></a>amrex.fpe_trap_overflow = 1      启用对浮点运算溢出的捕获，当浮点数超过最大范围导致溢出时触发异常。</h1>
                 
               </div>
             
@@ -518,6 +517,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -736,6 +741,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 

@@ -19,12 +19,12 @@
   <meta name="author" content="jiaqianzhang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="find . -name &#39;*&#39; | xargs grep -1 Spark      寻找当前文件里面带有Spark关键词的文件 find $WM_PROJECT_DIR -name probesDi查找文件名 find . -name &quot;*:Zone.Identifier&quot; -type f -delete清除.Zone文件 在原有基础上进行细化网格 123r">
+    <meta name="description" content="find . -name &#39;*&#39; | xargs grep -1 Spark 寻找当前文件里面带有Spark关键词的文件 find $WM_PROJECT_DIR -name probesDi 查找文件名 find . -name &quot;*:Zone.Identifier&quot; -type f -delete 清除.Zone文件 在原有基础上进行细化网格 123refineMesh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux系统常用指令">
 <meta property="og:url" content="http://example.com/2024/10/05/linux%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/index.html">
 <meta property="og:site_name" content="jiaqianzhang">
-<meta property="og:description" content="find . -name &#39;*&#39; | xargs grep -1 Spark      寻找当前文件里面带有Spark关键词的文件 find $WM_PROJECT_DIR -name probesDi查找文件名 find . -name &quot;*:Zone.Identifier&quot; -type f -delete清除.Zone文件 在原有基础上进行细化网格 123r">
+<meta property="og:description" content="find . -name &#39;*&#39; | xargs grep -1 Spark 寻找当前文件里面带有Spark关键词的文件 find $WM_PROJECT_DIR -name probesDi 查找文件名 find . -name &quot;*:Zone.Identifier&quot; -type f -delete 清除.Zone文件 在原有基础上进行细化网格 123refineMesh">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-05T08:18:28.000Z">
 <meta property="article:modified_time" content="2024-10-10T13:31:32.392Z">
@@ -44,6 +44,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -235,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          302 字
+          300 字
         
       </span>
     
@@ -297,24 +299,20 @@
             
               <div class="markdown-body">
                 
-                <p><code>find . -name &#39;*&#39; | xargs grep -1 Spark</code>     </p>
+                <p><code>find . -name '*' | xargs grep -1 Spark</code></p>
 <p>寻找当前文件里面带有Spark关键词的文件</p>
-<p><code>find $WM_PROJECT_DIR -name probesDi</code><br>查找文件名</p>
-<p><code>find . -name &quot;*:Zone.Identifier&quot; -type f -delete</code><br>清除.Zone文件</p>
+<p><code>find $WM_PROJECT_DIR -name probesDi</code><br>
+查找文件名</p>
+<p><code>find . -name &quot;*:Zone.Identifier&quot; -type f -delete</code><br>
+清除.Zone文件</p>
 <p>在原有基础上进行细化网格</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gams">refineMesh  <span class="hljs-comment">//首先在新的案例文件目录，这个命令会创建一个新的时间文件夹只包含有网格数据</span><br><br><span class="hljs-function"><span class="hljs-title">mapFields</span></span> ../template/ -consistent -sourceTime latestTime   <span class="hljs-comment">//映射指令，这里在新的案例文件目录映射template案例文件的最新时间步数据到此案例refineMesh生成的时间文件上</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h1 id="github相关"><a href="#github相关" class="headerlink" title="github相关"></a>github相关</h1><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git pull origin development  更新已经拉取的<br><br>git <span class="hljs-keyword">clone</span> <span class="hljs-title">--recursive</span> URL   连通子模块一起拉取<br><br>git restore examples/simple_example.cc      恢复远程仓库中的最新版本，丢弃本地修改<br><br>git clean -fd    清理所有未被跟踪的文件和文件夹<br><br>git clean -fdn   查看显示即将被删除的文件和目录<br><br>git fetch origin     从远程仓库拉取最新的更改<br><br>git reset --hard origin/<span class="hljs-keyword">master</span>  <span class="hljs-title">重置本地分支 ，这会将本地的master</span>分支重置为远程仓库最新提交<br><br>git status   验证同步<br></code></pre></td></tr></table></figure>
-
-
-
-<h1 id="python相关"><a href="#python相关" class="headerlink" title="python相关"></a>python相关</h1><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs maxima">conda <span class="hljs-built_in">deactivate</span>退出当前环境<br><br>conda <span class="hljs-built_in">activate</span> deepflame    激活deepflame环境<br><br>conda create -n deepflame python=<span class="hljs-number">3.9</span>  激活一个名字为deepflame的新环境<br><br>conda <span class="hljs-built_in">deactivate</span>  退出conda环境<br></code></pre></td></tr></table></figure>
-
-
-
-<h1 id="cantera"><a href="#cantera" class="headerlink" title="cantera"></a>cantera</h1><p><code>ck2yaml --input=C2H4-42s-171r.inp --thermo=C2H4-42s-therm.dat --transport=C2H4-42s-trans.dat</code></p>
+<h1>github相关</h1>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git pull origin development  更新已经拉取的<br><br>git <span class="hljs-keyword">clone</span> <span class="hljs-title">--recursive</span> URL   连通子模块一起拉取<br><br>git restore examples/simple_example.cc      恢复远程仓库中的最新版本，丢弃本地修改<br><br>git clean -fd    清理所有未被跟踪的文件和文件夹<br><br>git clean -fdn   查看显示即将被删除的文件和目录<br><br>git fetch origin     从远程仓库拉取最新的更改<br><br>git reset --hard origin/<span class="hljs-keyword">master</span>  <span class="hljs-title">重置本地分支 ，这会将本地的master</span>分支重置为远程仓库最新提交<br><br>git status   验证同步<br></code></pre></td></tr></table></figure>
+<h1>python相关</h1>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs maxima">conda <span class="hljs-built_in">deactivate</span>退出当前环境<br><br>conda <span class="hljs-built_in">activate</span> deepflame    激活deepflame环境<br><br>conda create -n deepflame python=<span class="hljs-number">3.9</span>  激活一个名字为deepflame的新环境<br><br>conda <span class="hljs-built_in">deactivate</span>  退出conda环境<br></code></pre></td></tr></table></figure>
+<h1>cantera</h1>
+<p><code>ck2yaml --input=C2H4-42s-171r.inp --thermo=C2H4-42s-therm.dat --transport=C2H4-42s-trans.dat</code></p>
 <p>转化机理为yaml格式</p>
 
                 
@@ -481,7 +479,6 @@
 
   
   
-
 
 
 
@@ -702,49 +699,6 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
-
   <script defer src="/js/leancloud.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
@@ -763,20 +717,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

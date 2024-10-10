@@ -250,7 +250,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/10/07/%E5%9C%A8OpenFOAM%E4%B8%AD%E6%9E%84%E5%BB%BASE%E5%8F%8C%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/" target="_self">
         <div>
-          SE双方程模型SE双方程模型&#x3D;单分布模型，它是一种简化的模型假设，假定碳烟的粒径分布为单分布。具体的模型假定可以参考SootLib: Monodispersed (byu.edu)。 值得说明的是，目前的SootLib仍然有很多的BUG，目前通过我的测试的搭配： SootModelSelect{    nucleationModel   LL;    growthModel
+          SE双方程模型 SE双方程模型=单分布模型，它是一种简化的模型假设，假定碳烟的粒径分布为单分布。具体的模型假定可以参考SootLib: Monodispersed (byu.edu)。 值得说明的是，目前的SootLib仍然有很多的BUG，目前通过我的测试的搭配： SootModelSelect { nucleationModel   LL; growthModel       LL; oxida
         </div>
       </a>
 
@@ -283,7 +283,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/10/06/%E7%A2%B3%E7%83%9F%E7%9A%84HACA%E6%9C%BA%E7%90%86%E4%BB%A5%E5%8F%8A%E5%9C%A8AMREX%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0/" target="_self">
         <div>
-          HACA原理参考SootLib: Chemistry and Physical Models (byu.edu)HACA机理由下面六个反应构成     Reaction Rate constant    (1) C(s)-H + H ↔ C(s) . + H 2 k1&#x3D;4.2×1013e−13&#x2F;RT     kr1&#x3D;3.9×1012e−11&#x2F;RT   (2)
+          HACA原理 参考SootLib: Chemistry and Physical Models (byu.edu)HACA机理由下面六个反应构成     Reaction Rate constant     (1) C(s)-H + H ↔ C(s) . + H 2 k1=4.2×1013e−13/RT     kr1=3.9×1012e−11/RT   (2) C(s)-H + OH ↔ C(s
         </div>
       </a>
 
@@ -316,7 +316,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/10/06/HMOM%E6%96%B9%E6%B3%95%E5%8E%9F%E7%90%86/" target="_self">
         <div>
-          HMOM方法原理HMOM(Hybrid Method of Moments)是一种结合了MOMIC和DQMOM两种方法的矩方法MOMIC:在数值上很容易实现但是不能解释碳烟的双模分布DQMOM：是精确的，但是数值上很难实现 MOMIC采用Muller等人的体积-表面积（VS)对碳烟颗粒进行描述碳烟直径可表述为：$$d_p&#x3D;6 V S^ { -1 }$$碳烟数密度可表述为：$$n_p&#x
+          HMOM方法原理 HMOM(Hybrid Method of Moments)是一种结合了MOMIC和DQMOM两种方法的矩方法 MOMIC:在数值上很容易实现但是不能解释碳烟的双模分布 DQMOM：是精确的，但是数值上很难实现 MOMIC 采用Muller等人的体积-表面积（VS)对碳烟颗粒进行描述 碳烟直径可表述为： dp=6VS−1d_p=6 V S^ { -1 } dp​=6VS−1 碳烟
         </div>
       </a>
 
@@ -349,7 +349,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/10/05/linux%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_self">
         <div>
-          find . -name &#39;*&#39; | xargs grep -1 Spark      寻找当前文件里面带有Spark关键词的文件 find $WM_PROJECT_DIR -name probesDi查找文件名 find . -name &quot;*:Zone.Identifier&quot; -type f -delete清除.Zone文件 在原有基础上进行细化网格 123r
+          find . -name '*' | xargs grep -1 Spark 寻找当前文件里面带有Spark关键词的文件 find $WM_PROJECT_DIR -name probesDi 查找文件名 find . -name &quot;*:Zone.Identifier&quot; -type f -delete 清除.Zone文件 在原有基础上进行细化网格 123refineMesh
         </div>
       </a>
 
@@ -382,7 +382,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/10/05/%E4%BD%BF%E7%94%A8Amrex%E8%AE%A1%E7%AE%97%E7%A2%B3%E7%83%9F/" target="_self">
         <div>
-          Amrex的安装Amrex主要由三个部分构成：PelePhysics PeleLMeX PeleC ,我们这里计算碳烟主要是用到了前两个，PelePhysics主要提供化学计算，而后者提供流体求解器，具体的说明和安装可以参考AMReX-Combustion: Suite of adaptive mesh reacting flow codes for reacting flows 常见BUG总结（
+          Amrex的安装 Amrex主要由三个部分构成：PelePhysics PeleLMeX PeleC ,我们这里计算碳烟主要是用到了前两个，PelePhysics主要提供化学计算，而后者提供流体求解器，具体的说明和安装可以参考AMReX-Combustion: Suite of adaptive mesh reacting flow codes for reacting flows 常见BUG总结
         </div>
       </a>
 
@@ -415,7 +415,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/10/04/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" target="_self">
         <div>
-          我的所有网站博客配置都是跟着这个文章写的GitHub Pages + Hexo搭建个人博客网站，史上最全教程_hexo博客-CSDN博客 一些常见的运行命令：hexo g -d 部署到GitHub上（要提前配置gitHub相关的信息） hexo s 这两个用来本地启动 hexo new post 个人博客搭建指南这个指令用来新建post文
+          我的所有网站博客配置都是跟着这个文章写的 GitHub Pages + Hexo搭建个人博客网站，史上最全教程_hexo博客-CSDN博客 一些常见的运行命令： hexo g -d 部署到GitHub上（要提前配置gitHub相关的信息） hexo s 这两个用来本地启动 hexo new post 个人博客搭建指南 这个指令用来新建post文
         </div>
       </a>
 
@@ -613,20 +613,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

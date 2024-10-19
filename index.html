@@ -243,14 +243,14 @@
       <h2 class="index-header">
         
         <a href="/2024/10/07/%E5%9C%A8OpenFOAM%E4%B8%AD%E6%9E%84%E5%BB%BASE%E5%8F%8C%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/" target="_self">
-          在OpenFOAM中构建SE双方程模型
+          在OpenFOAM中构建矩方程模型
         </a>
       </h2>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/10/07/%E5%9C%A8OpenFOAM%E4%B8%AD%E6%9E%84%E5%BB%BASE%E5%8F%8C%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/" target="_self">
         <div>
-          SE双方程模型 SE双方程模型=单分布模型，它是一种简化的模型假设，假定碳烟的粒径分布为单分布。具体的模型假定可以参考SootLib: Monodispersed (byu.edu)。 值得说明的是，目前的SootLib仍然有很多的BUG，目前通过我的测试的搭配： SootModelSelect { nucleationModel   LL; growthModel       LL; oxida
+          SE双方程模型 SE双方程模型=单分布模型，它是一种简化的模型假设，假定碳烟的粒径分布为单分布。具体的模型假定可以参考SootLib: Monodispersed (byu.edu)。其它矩方程模型也可以在这篇文章中找到。 值得说明的是，目前的SootLib仍然有很多的BUG 一些耦合的注意事项 在求解M0的过程中，由于M0的数量级跨越很大（在0-1e30左右），这会造成在计算时候源项的作用非常“
         </div>
       </a>
 
@@ -349,7 +349,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2024/10/05/linux%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_self">
         <div>
-          find . -name '*' | xargs grep -1 Spark 寻找当前文件里面带有Spark关键词的文件 find $WM_PROJECT_DIR -name probesDi 查找文件名 find . -name &quot;*:Zone.Identifier&quot; -type f -delete 清除.Zone文件 在原有基础上进行细化网格 123refineMesh
+          1234find . -name &quot;*:Zone.Identifier&quot; -type f -delete     清除.Zone文件sudo ldconfig 更新find $WM_PROJECT_DIR -name probesDi   查找文件名find . -name &#x27;*&#x27; | xargs grep -1 Spark     寻找当前文件里面带有Sp
         </div>
       </a>
 
